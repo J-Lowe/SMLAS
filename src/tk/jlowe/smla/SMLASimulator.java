@@ -176,19 +176,17 @@ public class SMLASimulator {
 		String memoryDump = "";
 		int cells = 0;
 		for(int ii = 0; ii < 100; ii ++) {
-			if(memoryArray[ii] != 0) {
-				String loc = "[" + ii;
-				if(ii < 10)
-					loc = "[0" + ii;
-				String spaces = "";
-				for(int less = 4 - Integer.toString(memoryArray[ii]).length(); less > 0; less--) {
-					spaces += " ";
-				}
-				memoryDump += loc + ":" + spaces + memoryArray[ii] + "]";
-				if((cells % 10) + 1 == 10)
-					memoryDump += "\n";
-				cells++;
+			String loc = "[" + ii;
+			if(ii < 10)
+				loc = "[0" + ii;
+			String spaces = "";
+			for(int less = 4 - Integer.toString(memoryArray[ii]).length(); less > 0; less--) {
+				spaces += " ";
 			}
+			memoryDump += loc + ":" + spaces + memoryArray[ii] + "]";
+			if((cells % 10) + 1 == 10)
+				memoryDump += "\n";
+			cells++;
 		}
 		System.out.println("Memory Dump:");
 		System.out.println(memoryDump.toString());
